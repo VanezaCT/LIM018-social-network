@@ -2,6 +2,28 @@ body{
     flex-wrap: wrap;
     
 }
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgb(92, 88, 88);
+}
+.options{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+#btningresar{
+    width: 70px;
+    height: 30px;
+    background: #89B8C7 ;
+    border-radius: 10px;
+     border: 0px;
+     margin-left: 10px;
+}
+#btningresar:hover{
+    background: #3b7486 ;
+}
 .inicioLogin {
     vertical-align: middle;
     max-width: 300px;
@@ -19,11 +41,10 @@ border-radius: 30px;
     color: #89B8C7;
     font-family: 'Tangerine', serif;
     font-size: 60px;
-    text-shadow: 4px 4px 4px #aaa;
-    margin-bottom: 5px;  
+    text-shadow: 4px 4px 4px #aaa; 
 }
 .imgInicio{
-    margin: 0;
+    margin-top: -35px;
 }
 .textIngresa{
     font-size: 16px;
@@ -61,11 +82,11 @@ border-radius: 30px;
     border-radius: 10px;
      border: 0px;
 }
-.btnRegistrar{
+.btnRegistrate{
     border: 0px;
     background: transparent;
 }
-.btnRegistrar:hover{
+.btnRegistrate:hover{
     color: blue;
 }
 button svg{
@@ -83,4 +104,19 @@ button svg{
    align-items: center;
    justify-content: center;
    background: #D9D9D9;
+}
+
+#registrar{
+    width: 300px;
+    height: 450px;
+    text-align: center;
+    margin-top: -80%;
+}
+
+.btnRegistrar{
+    width: 204px;
+    height: 35px;
+    background: #89B8C7 ;
+    border-radius: 10px;
+     border: 0px;
 }
