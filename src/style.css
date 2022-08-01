@@ -1,0 +1,86 @@
+body{
+    flex-wrap: wrap;
+    
+}
+.inicioLogin {
+    vertical-align: middle;
+    max-width: 300px;
+    width: 360px;
+    height:700px;
+    /*border: 0.5px solid rgba(212, 204, 204, 0.904);*/
+border-radius: 30px;
+    margin: 20px;
+    margin-top: 20px;
+    text-align: center;
+    box-shadow: 0.5px 0.5px 2px 0.5px #aaa;;
+    padding: 10px;
+}
+.titulo {
+    color: #89B8C7;
+    font-family: 'Tangerine', serif;
+    font-size: 60px;
+    text-shadow: 4px 4px 4px #aaa;
+    margin-bottom: 5px;  
+}
+.imgInicio{
+    margin: 0;
+}
+.textIngresa{
+    font-size: 16px;
+    font-style: oblique;
+}
+.userName{
+    margin-bottom: 10px;
+    width: 240px;
+   height: 37px; 
+   border-radius: 10px;
+   background: #D9D9D9;
+   border: 0px; 
+}
+
+.inputCorreo{
+    margin-bottom: 10px;
+    width: 240px;
+   height: 37px; 
+   border-radius: 10px;
+   background: #D9D9D9;
+   border: 0px;
+}
+.inputContraseña{
+    margin-bottom: 10px;
+    width: 240px;
+   height: 37px; 
+   border-radius: 10px;
+   background: #D9D9D9;
+   border: 0px;
+}
+.iniciarSesion{
+    width: 204px;
+    height: 35px;
+    background: #89B8C7 ;
+    border-radius: 10px;
+     border: 0px;
+}
+.btnRegistrar{
+    border: 0px;
+    background: transparent;
+}
+.btnRegistrar:hover{
+    color: blue;
+}
+button svg{
+    width: 30px;
+    height: 30px;
+    padding-right: 5px;
+}
+.btnGoogle{
+   width: 240px;
+   height: 43px; 
+   border: 0px;
+   border-radius: 10px;
+   margin: 30px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background: #D9D9D9;
+}
