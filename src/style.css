@@ -1,122 +1,148 @@
-body{
+body {
     flex-wrap: wrap;
-    
+    background-image: url('./img/fondo.png');
+    width: 100%;
+
 }
-header{
+
+#root{
+    text-align: center;
+}
+
+.nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid rgb(92, 88, 88);
+    border-bottom: 1px solid rgba(107, 104, 104, 0.726);
+    background: #b2e5f7;
+    margin-top: -8px;
+    padding-left: 10px;
+    height: 100px;
 }
-.options{
+
+.options {
     display: flex;
     align-items: center;
     padding: 10px;
 }
-#btningresar{
+
+.btningresar {
     width: 70px;
     height: 30px;
-    background: #89B8C7 ;
+    background: #89B8C7;
     border-radius: 10px;
-     border: 0px;
-     margin-left: 10px;
+    border: 0px;
+    margin-left: 10px;
 }
-#btningresar:hover{
-    background: #3b7486 ;
+
+.btningresar:hover {
+    background: #3b7486;
 }
+
 .inicioLogin {
     vertical-align: middle;
     max-width: 300px;
     width: 360px;
-    height:700px;
+    height: 700px;
     /*border: 0.5px solid rgba(212, 204, 204, 0.904);*/
-border-radius: 30px;
+    border-radius: 30px;
     margin: 20px;
     margin-top: 20px;
     text-align: center;
-    box-shadow: 0.5px 0.5px 2px 0.5px #aaa;;
+    box-shadow: 0.5px 0.5px 2px 0.5px #aaa;
     padding: 10px;
+    background: white;
 }
+
 .titulo {
-    color: #89B8C7;
+    color: #2e8baa;
     font-family: 'Tangerine', serif;
     font-size: 60px;
-    text-shadow: 4px 4px 4px #aaa; 
+    text-shadow: 4px 4px 4px rgb(175, 172, 172);
 }
-.imgInicio{
+
+.imgInicio {
     margin-top: -35px;
+    
 }
-.textIngresa{
+
+.textIngresa {
     font-size: 16px;
     font-style: oblique;
 }
-.userName{
+
+.username {
     margin-bottom: 10px;
     width: 240px;
-   height: 37px; 
-   border-radius: 10px;
-   background: #D9D9D9;
-   border: 0px; 
+    height: 37px;
+    border-radius: 10px;
+    background: #D9D9D9;
+    border: 0px;
 }
 
-.inputCorreo{
+.inputCorreo {
     margin-bottom: 10px;
     width: 240px;
-   height: 37px; 
-   border-radius: 10px;
-   background: #D9D9D9;
-   border: 0px;
+    height: 37px;
+    border-radius: 10px;
+    background: #D9D9D9;
+    border: 0px;
 }
-.inputContraseña{
+
+.inputContrasenia {
     margin-bottom: 10px;
     width: 240px;
-   height: 37px; 
-   border-radius: 10px;
-   background: #D9D9D9;
-   border: 0px;
+    height: 37px;
+    border-radius: 10px;
+    background: #D9D9D9;
+    border: 0px;
 }
-.iniciarSesion{
+
+.iniciarSesion {
     width: 204px;
     height: 35px;
-    background: #89B8C7 ;
+    background: #89B8C7;
     border-radius: 10px;
-     border: 0px;
+    border: 0px;
 }
-.btnRegistrate{
+
+.btnRegistrate {
     border: 0px;
     background: transparent;
 }
-.btnRegistrate:hover{
+
+.btnRegistrate:hover {
     color: blue;
 }
-button svg{
+
+button svg {
     width: 30px;
     height: 30px;
     padding-right: 5px;
 }
-.btnGoogle{
-   width: 240px;
-   height: 43px; 
-   border: 0px;
-   border-radius: 10px;
-   margin: 30px;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   background: #D9D9D9;
+
+.btnGoogle {
+    width: 240px;
+    height: 43px;
+    border: 0px;
+    border-radius: 10px;
+    margin: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #D9D9D9;
 }
 
-#registrar{
+.registrar {
     width: 300px;
     height: 450px;
     text-align: center;
-    margin-top: -80%;
 }
 
-.btnRegistrar{
+.btnRegistrar {
     width: 204px;
     height: 35px;
-    background: #89B8C7 ;
+    background: #89B8C7;
     border-radius: 10px;
-     border: 0px;
+    border: 0px;
 }
