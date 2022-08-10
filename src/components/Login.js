@@ -73,7 +73,6 @@ const firebaseConfig = {
     btnIniciarSesion.addEventListener('click', (e) => {
       let email = document.getElementById('loginCorreo').value;
 let password = document.getElementById('loginContrasenia').value;
-let username = document.getElementById('username').value;
       signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           // Signed in
@@ -83,9 +82,7 @@ let username = document.getElementById('username').value;
             last_login: dt,
           })
           alert('Usuario correcto')
-          // ...
-          
-          
+          return onNavegate('/Perfil');
           
         })
         .catch((error) => {

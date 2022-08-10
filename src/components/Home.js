@@ -1,6 +1,6 @@
 import { onNavegate } from "../main.js"
 export const Home = () => {
-    const HomeNav = document.createElement('section')
+    const HomeNav = document.createElement('header')
     HomeNav.className = 'nav'
     const optionsNav = document.createElement('div')
     optionsNav.className = 'options'
@@ -15,6 +15,7 @@ export const Home = () => {
     btnIngresar.textContent = 'Ingresar'
   
     btnIngresar.addEventListener('click', () => onNavegate('/Login'))
+    inicio.addEventListener('click',()=> onNavegate('/') )
   
     HomeNav.appendChild(titulo)
     HomeNav.appendChild(optionsNav)

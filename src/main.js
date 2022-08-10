@@ -2,14 +2,15 @@
 import { Home } from "./components/Home.js";
 import { Login } from "./components/Login.js";
 import { Registrar } from "./components/Registrar.js";
-
+import { Perfil } from "./components/Perfil.js";
 
 const rootDiv=document.getElementById('root')
 
 const routes={
   '/':Home,
   '/Registrar':Registrar,
-  '/Login':Login
+  '/Login':Login,
+  '/Perfil':Perfil
 }
 
 export const onNavegate=(pathname)=>{
