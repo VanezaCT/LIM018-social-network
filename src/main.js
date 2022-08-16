@@ -5,6 +5,7 @@ import { Registrar } from "./components/Registrar.js";
 import { Perfil } from "./components/Perfil.js";
 
 const rootDiv=document.getElementById('root')
+const bienvenida=document.getElementById('bienvenida')
 
 const routes={
   '/':Home,
@@ -23,9 +24,15 @@ export const onNavegate=(pathname)=>{
     rootDiv.removeChild(rootDiv.firstChild)
 
   }
+  if(window.location.pathname !== '/'){
   rootDiv.appendChild(routes['/']())
+}
   rootDiv.appendChild(routes[pathname]())
 };
+
+if(window.location.pathname !== '/'){
+  rootDiv.appendChild(routes['/']())
+}
 rootDiv.appendChild(routes[window.location.pathname]())
 
 

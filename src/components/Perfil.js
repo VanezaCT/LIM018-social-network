@@ -19,8 +19,7 @@ export const Perfil = () => {
     name.className='name'
     let email = document.createElement('p')
     email.className='email'
-    let photo = document.createElement('img')
-    photo.className='photo'
+    
 
     sectionPerfil.appendChild(sectionContPerfil)
     //perfil
@@ -42,11 +41,10 @@ export const Perfil = () => {
 
         if (user !== null) {
 
-               photo.src = user.photoURL
+              // photo.src = user.photoURL
                 name.textContent = user.displayName
                 email.textContent = user.email
-
-
+            console.log(user);
             }
         
         else {

@@ -44,7 +44,7 @@ body {
     height: 700px;
     /*border: 0.5px solid rgba(212, 204, 204, 0.904);*/
     border-radius: 30px;
-    margin: 20px;
+    margin: auto;
     margin-top: 20px;
     text-align: center;
     box-shadow: 0.5px 0.5px 2px 0.5px #aaa;
@@ -119,6 +119,18 @@ button svg {
     padding-right: 5px;
 }
 
+.registrar{
+margin: auto;
+margin-top: 25px;
+padding: 10px;
+background: white;
+border-radius: 30px;
+}
+.registrar p{
+    font-size: 20px;
+    color: #3b7486;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
 .btnGoogle {
     width: 240px;
     height: 43px;
@@ -167,5 +179,19 @@ height: auto;
 
 #photoPerfil{
     width: 135px;
-    height: 135px;
+    height: 50px;
+}
+
+.bienvenida{
+    width: 600px;
+    height: 200px;
+    margin: auto;
+    background: #89B8C7;
+    border-radius: 30px;
+    padding: 30px;
+    margin-top: 50px;
+}
+.bienvenida .textBienvenida{
+    font-size: 25px;
+    margin-bottom: 50px;
 }

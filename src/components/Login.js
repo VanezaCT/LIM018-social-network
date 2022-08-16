@@ -28,7 +28,7 @@ const firebaseConfig = {
     titulo.className = 'titulo'
     const imgInicio = document.createElement('img')
     imgInicio.className = 'imgInicio'
-    imgInicio.src = '"./img/imgInicio.png"'
+    imgInicio.src = './img/imgInicio.png'
     const ingresa = document.createElement('p')
     const inputCorreo = document.createElement('input')
     inputCorreo.className = 'inputCorreo'
@@ -77,6 +77,7 @@ let password = document.getElementById('loginContrasenia').value;
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
+          console.log(user);
           let dt = new Date();
           update(ref(database, 'users/' + user.uid), {
             last_login: dt,

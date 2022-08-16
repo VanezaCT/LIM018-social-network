@@ -27,9 +27,9 @@ export const Registrar = () => {
   registrar.className = 'registrar'
   const divRegistrar = document.createElement('div')
   const ingresarDatos = document.createElement('p')
-  const photoPerfil=document.createElement('img')
+  const photoPerfil=document.createElement('input')
   photoPerfil.id='photoPerfil'
-  photoPerfil.src='./img/perfilPrueba.png'
+  photoPerfil.type='file'
   const userName = document.createElement('input')
   userName.className = 'userName'
   userName.id = 'userName'
@@ -65,11 +65,13 @@ let userName = document.getElementById('userName').value
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        set(ref(database, 'users/' + user.uid), {
-          userName: userName,
-          email: email
+        console.log(user);
+       set(ref(database, 'users/' + user.uid), {
+         user: userName,
+         email: email
+          
         })
-
+        console.log(userCredential);
         alert('Usuario creado')
         sendEmailVerification();
         // ...
