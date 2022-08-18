@@ -2,6 +2,8 @@ import { onNavegate } from "../main.js"
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-app.js";
 import { getDatabase, ref, update } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-database.js";
 import { getAuth, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider} from "https://www.gstatic.com/firebasejs/9.9.1/firebase-auth.js";
+import { getFirestore, collection, addDoc } from 'https://www.gstatic.com/firebasejs/9.9.1/firebase-firestore.js';
+
 
 
 const firebaseConfig = {
@@ -16,7 +18,7 @@ const firebaseConfig = {
  
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
-  const database = getDatabase(app);
+  const database = getFirestore(app);
   const auth = getAuth();
   const provider = new GoogleAuthProvider();
 
@@ -77,13 +79,9 @@ let password = document.getElementById('loginContrasenia').value;
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          console.log(user);
-          let dt = new Date();
-          update(ref(database, 'users/' + user.uid), {
-            last_login: dt,
-          })
+          console.log(user); 
           alert('Usuario correcto')
-          return onNavegate('/Perfil');
+          return onNavegate('/Perfil')
           
         })
         .catch((error) => {
@@ -91,6 +89,7 @@ let password = document.getElementById('loginContrasenia').value;
           const errorMessage = error.message;
           alert(errorMessage)
         });
+        
     })
     
   //registrar con google
@@ -120,6 +119,7 @@ let password = document.getElementById('loginContrasenia').value;
       });
 
   })
+
 
   return inicioLogin;
 }

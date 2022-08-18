@@ -1,8 +1,11 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-app.js";
 import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-database.js";
-import { getAuth, createUserWithEmailAndPassword,sendEmailVerification } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, sendEmailVerification } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-auth.js";
 import { getStorage } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-storage.js";
+import { getFirestore, collection, addDoc } from 'https://www.gstatic.com/firebasejs/9.9.1/firebase-firestore.js';
+
+
 
 
 const firebaseConfig = {
@@ -17,9 +20,11 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const database = getDatabase(app);
+//const database = getDatabase(app);
 const auth = getAuth();
 const storage = getStorage(app);
+const database = getFirestore(app);
+
 //const storageRef = ref(storage);
 
 export const Registrar = () => {
@@ -27,9 +32,9 @@ export const Registrar = () => {
   registrar.className = 'registrar'
   const divRegistrar = document.createElement('div')
   const ingresarDatos = document.createElement('p')
-  const photoPerfil=document.createElement('input')
-  photoPerfil.id='photoPerfil'
-  photoPerfil.type='file'
+  const photoPerfil = document.createElement('input')
+  photoPerfil.id = 'photoPerfil'
+  photoPerfil.type = 'file'
   const userName = document.createElement('input')
   userName.className = 'userName'
   userName.id = 'userName'
@@ -59,36 +64,41 @@ export const Registrar = () => {
   //creaar nuevo usuario
   btnRegistrar.addEventListener('click', (e) => {
     let email = document.getElementById('inputCorreo').value;
-let password = document.getElementById('inputContrasenia').value;
-let userName = document.getElementById('userName').value
+    let password = document.getElementById('inputContrasenia').value;
+    let userName = document.getElementById('userName').value
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
         console.log(user);
-       set(ref(database, 'users/' + user.uid), {
-         user: userName,
-         email: email
-          
-        })
-        console.log(userCredential);
-        alert('Usuario creado')
-        sendEmailVerification();
-        // ...
+        //set(ref(database, 'users/' + user.uid), {
+        // user: userName,
+        // email: email
+        try {
+          const docRef = addDoc(collection(database, "users"), {
+            email: email,
+            username: userName,
+            password: password,
+            uid: user.uid
+          });
+          console.log("Document written with ID: ", docRef.id);
+        } catch (e) {
+          console.error("Error adding document: ", e);
+        }
       })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // ..
-        alert(errorMessage)
-      });
-  })
-
-  sendEmailVerification(auth.currentUser)
-  .then(() => {
-    // Email verification sent!
+    /*updateProfile(auth.currentUser, {
+      displayName: userName, //photoURL: "https://example.com/jane-q-user/profile.jpg"
+ 
+    });*/
+    alert('Usuario creado')
+    sendEmailVerification();
     // ...
-  });
+  })
+  sendEmailVerification(auth.currentUser)
+    .then(() => {
+      // Email verification sent!
+      // ...
+    });
 
   return registrar;
 }

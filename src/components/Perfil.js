@@ -1,4 +1,4 @@
-import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-auth.js";
+import { getAll } from "../lib/index.js"
 
 export const Perfil = () => {
     const sectionPerfil = document.createElement('section')
@@ -7,8 +7,8 @@ export const Perfil = () => {
     sectionContPerfil.className = 'sectionContPerfil'
     const divPerfil = document.createElement('div')
     divPerfil.className = 'divPerfil'
-    const datosPerfil=document.createElement('div')
-    datosPerfil.className='datosPerfil'
+   const datosPerfil=document.createElement('div')
+   datosPerfil.className='datosPerfil'
     const divPublicaciones = document.createElement('div')
     divPublicaciones.className = 'divPublicaciones'
     const btnPublicar=document.createElement('button')
@@ -25,33 +25,15 @@ export const Perfil = () => {
     //perfil
     sectionContPerfil.appendChild(divPerfil)
     divPerfil.appendChild(datosPerfil)
-    datosPerfil.appendChild(photo)
+    //datosPerfil.appendChild(photo)
     datosPerfil.appendChild(name)
     datosPerfil.appendChild(email)
 
     //publicaciones
     sectionContPerfil.appendChild(divPublicaciones)
     divPublicaciones.appendChild(btnPublicar)
-    
+    getAll();
 
-
-    const auth = getAuth();
-
-    onAuthStateChanged(auth, (user) => {
-
-        if (user !== null) {
-
-              // photo.src = user.photoURL
-                name.textContent = user.displayName
-                email.textContent = user.email
-            console.log(user);
-            }
-        
-        else {
-            // User is signed out
-            // ...
-        }
-    });
     return sectionPerfil;
 
 }

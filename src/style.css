@@ -4,8 +4,6 @@ body {
 
 }
 
-
-
 .nav {
     display: flex;
     justify-content: space-between;
@@ -61,7 +59,6 @@ body {
 
 .imgInicio {
     margin-top: -35px;
-    
 }
 
 .textIngresa {
@@ -145,7 +142,7 @@ border-radius: 30px;
 
 .registrar {
     width: 300px;
-    height: 450px;
+    height: 350px;
     text-align: center;
 }
 
