@@ -1,9 +1,9 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-app.js";
-import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-database.js";
+//import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-database.js";
 import { getAuth, createUserWithEmailAndPassword, sendEmailVerification } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-auth.js";
 import { getStorage } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-storage.js";
-import { getFirestore, collection, addDoc } from 'https://www.gstatic.com/firebasejs/9.9.1/firebase-firestore.js';
+import { getFirestore, collection, addDoc, setDoc, doc } from 'https://www.gstatic.com/firebasejs/9.9.1/firebase-firestore.js';
 
 
 
@@ -55,7 +55,7 @@ export const Registrar = () => {
 
   registrar.appendChild(ingresarDatos)
   registrar.appendChild(divRegistrar)
-  divRegistrar.appendChild(photoPerfil)
+  //divRegistrar.appendChild(photoPerfil)
   divRegistrar.appendChild(userName)
   divRegistrar.appendChild(inputCorreo)
   divRegistrar.appendChild(inputContrasenia)
@@ -75,11 +75,12 @@ export const Registrar = () => {
         // user: userName,
         // email: email
         try {
-          const docRef = addDoc(collection(database, "users"), {
+           setDoc(doc(database, "users", user.uid),{
+          //docRef = addDoc(collection(database, "users"), {
             email: email,
             username: userName,
             password: password,
-            uid: user.uid
+            //uid: user.uid
           });
           console.log("Document written with ID: ", docRef.id);
         } catch (e) {
@@ -91,14 +92,14 @@ export const Registrar = () => {
  
     });*/
     alert('Usuario creado')
-    sendEmailVerification();
+    //sendEmailVerification();
     // ...
   })
-  sendEmailVerification(auth.currentUser)
-    .then(() => {
+  //sendEmailVerification(auth.currentUser)
+   // .then(() => {
       // Email verification sent!
       // ...
-    });
+   // });
 
   return registrar;
 }

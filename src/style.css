@@ -167,12 +167,6 @@ height: auto;
 
 }
 
-.divPublicaciones{
-background: #aaa;
-margin-left: 10px;
-width: 989px;
-height: auto;
-}
 
 #photoPerfil{
     width: 135px;
@@ -192,3 +186,14 @@ height: auto;
     font-size: 25px;
     margin-bottom: 50px;
 }
+
+.divPublicaciones{
+    background: #aaa;
+    margin-left: 10px;
+    width: 989px;
+    height: auto;
+    vertical-align: middle;
+    padding: 10px;
+    }
+
+    

@@ -39,6 +39,7 @@ const firebaseConfig = {
     const inputContrasenia = document.createElement('input')
     inputContrasenia.className = 'inputContrasenia'
     inputContrasenia.id = 'loginContrasenia'
+    inputContrasenia.type='password'
     inputContrasenia.placeholder = ' Ingresar tu contraseña'
     const btnIniciarSesion = document.createElement('button')
     btnIniciarSesion.className = 'iniciarSesion'
@@ -79,7 +80,6 @@ let password = document.getElementById('loginContrasenia').value;
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          console.log(user); 
           alert('Usuario correcto')
           return onNavegate('/Perfil')
           
