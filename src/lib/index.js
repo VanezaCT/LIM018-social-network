@@ -4,7 +4,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.1/firebase
 import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-database.js";
 import { getAuth, createUserWithEmailAndPassword, sendEmailVerification } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-auth.js";
 import { getStorage } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-storage.js";
-import { getFirestore, collection, addDoc, getDocs,doc, getDoc,getDocFromCache } from 'https://www.gstatic.com/firebasejs/9.9.1/firebase-firestore.js';
+import { getFirestore, collection, addDoc, getDocs,doc, getDoc, setDoc} from 'https://www.gstatic.com/firebasejs/9.9.1/firebase-firestore.js';
 
 const firebaseConfig = {
   apiKey: "AIzaSyDRS2C37ANdYaeIPfM3LzFPK4gqL3UY_P4",
@@ -24,11 +24,6 @@ const storage = getStorage(app);
 const database = getFirestore(app);
 
 export async function mostrarUsuarios() {
-  /*const querySnapshot = await getDocs(collection(database, "users"));
-  querySnapshot.forEach((doc) => {
-    // doc.data() is never undefined for query doc snapshots
-    console.log(doc.id, " => ", doc.data());
-  });*/
 
   const user = auth.currentUser;
   if (user !== null) {
@@ -43,7 +38,9 @@ if (docSnap.exists()) {
   // doc.data() will be undefined in this case
   console.log("No such document!");
 }
+
   }
+  
 }
 
 
@@ -51,5 +48,10 @@ if (docSnap.exists()) {
 export const mostrarPublicacion=()=>{
   let inputpublicar=document.getElementById('inputpublicar').value
   document.getElementById("demo").innerHTML = inputpublicar;
-  
+  const user = auth.currentUser;
+  //const uid = user.uid;
+ setDoc(doc(database, "users", "post"), {
+    post: inputpublicar,
+    uid: user.uid
+  });
 }

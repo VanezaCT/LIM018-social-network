@@ -81,6 +81,7 @@ let password = document.getElementById('loginContrasenia').value;
           // Signed in
           const user = userCredential.user;
           alert('Usuario correcto')
+          
           return onNavegate('/Perfil')
           
         })

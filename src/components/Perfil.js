@@ -1,4 +1,4 @@
-import { mostrarUsuarios, mostrarPublicacion } from "../lib/index.js"
+import { mostrarUsuarios ,mostrarPublicacion } from "../lib/index.js"
 import { onNavegate } from "../main.js"
 
 export const Perfil = () => {
@@ -50,11 +50,11 @@ export const Perfil = () => {
     divPublicaciones.appendChild(btnPublicar)
     divPublicaciones.appendChild(divPost)
     divPost.appendChild(post)
+    
     mostrarUsuarios();
     btnPublicar.addEventListener('click', () => mostrarPublicacion());
    
-    
-    console.log(localStorage.getItem('email'));
+  
 
     return sectionPerfil;
 
