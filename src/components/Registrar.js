@@ -74,6 +74,7 @@ export const Registrar = () => {
         //set(ref(database, 'users/' + user.uid), {
         // user: userName,
         // email: email
+        
         try {
            setDoc(doc(database, "users", user.uid),{
           //docRef = addDoc(collection(database, "users"), {
@@ -81,6 +82,7 @@ export const Registrar = () => {
             username: userName,
             password: password,
             //uid: user.uid
+          
           });
           console.log("Document written with ID: ", docRef.id);
         } catch (e) {

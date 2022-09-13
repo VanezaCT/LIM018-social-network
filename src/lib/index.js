@@ -4,7 +4,8 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.1/firebase
 import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-database.js";
 import { getAuth, createUserWithEmailAndPassword, sendEmailVerification } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-auth.js";
 import { getStorage } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-storage.js";
-import { getFirestore, collection, addDoc, getDocs,doc, getDoc, setDoc} from 'https://www.gstatic.com/firebasejs/9.9.1/firebase-firestore.js';
+import { getFirestore, collection, addDoc, getDocs, doc, getDoc, setDoc } from 'https://www.gstatic.com/firebasejs/9.9.1/firebase-firestore.js';
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyDRS2C37ANdYaeIPfM3LzFPK4gqL3UY_P4",
@@ -27,31 +28,63 @@ export async function mostrarUsuarios() {
 
   const user = auth.currentUser;
   if (user !== null) {
-  
+
     const uid = user.uid;
     const docRef = doc(database, "users", uid);
-const docSnap = await getDoc(docRef);
+    const docSnap = await getDoc(docRef);
 
-if (docSnap.exists()) {
-  console.log("Document data:", docSnap.data());
-} else {
-  // doc.data() will be undefined in this case
-  console.log("No such document!");
-}
+    if (docSnap.exists()) {
+
+      console.log("Document data:", docSnap.data());
+      const dataUser = docSnap.data()
+      sessionStorage.setItem("dataUser",JSON.stringify(dataUser) );
+      //sessionStorage.getItem("lastname");
+      const name = document.getElementById('name')
+      const email = document.getElementById('email')
+      name.innerHTML = dataUser.username
+      email.innerHTML = dataUser.email
+    } else {
+      // doc.data() will be undefined in this case
+      console.log("No such document!");
+    }
 
   }
-  
+
 }
 
-
-
-export const mostrarPublicacion=()=>{
-  let inputpublicar=document.getElementById('inputpublicar').value
-  document.getElementById("demo").innerHTML = inputpublicar;
+export async function almacenarPublicacion() {
+  let inputpublicar = document.getElementById('inputpublicar').value
+  //document.getElementById("demo").innerHTML = inputpublicar;
   const user = auth.currentUser;
-  //const uid = user.uid;
- setDoc(doc(database, "users", "post"), {
+  const uid = user.uid;
+  const dataUser=JSON.parse(sessionStorage.getItem("dataUser"))
+  const docRef = await addDoc(collection(database, "post"), {
     post: inputpublicar,
-    uid: user.uid
+    uid: user.uid,
+    username: dataUser.username
   });
+
 }
+
+export async function mostrarPublicacion(){
+
+  const querySnapshot = await getDocs(collection(database, "post"));
+  querySnapshot.forEach((doc) => {
+    // doc.data() is never undefined for query doc snapshots
+    const uid = doc.id
+    const dataPost=doc.data()
+    //console.log(uid, " => ", dataPost);
+    const post=document.getElementById('post')
+    const btnEditar=document.getElementById('btnEditar')
+    const btnEliminar= document.getElementById('btnEliminar')
+    
+      post.innerHTML= dataPost.username + ': '+ dataPost.post 
+    
+    
+  });
+
+}
+
+
+
+

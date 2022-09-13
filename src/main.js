@@ -3,7 +3,6 @@ import { Home } from "./components/Home.js";
 import { Login } from "./components/Login.js";
 import { Registrar } from "./components/Registrar.js";
 import { Perfil } from "./components/Perfil.js";
-import { Publicaciones } from "./components/Publicaciones.js";
 
 const rootDiv=document.getElementById('root')
 const bienvenida=document.getElementById('bienvenida')
@@ -12,8 +11,7 @@ const routes={
   '/':Home,
   '/Registrar':Registrar,
   '/Login':Login,
-  '/Perfil':Perfil,
-  '/Publicaciones':Publicaciones
+  '/Perfil':Perfil
 }
 
 export const onNavegate=(pathname)=>{
